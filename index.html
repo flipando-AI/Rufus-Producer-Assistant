@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - A Pen by Micaela wild</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Video Brief Master</title>
+  <style>
+    .app-header {
+      text-align: center;
+      background-color: #f1f1f1;
+      padding: 20px;
+    }
+
+    .app-tags {
+      margin-top: 20px;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 5px 10px;
+      background-color: #e0e0e0;
+      margin-right: 5px;
+    }
+
+    .metrics-info {
+      margin-top: 20px;
+    }
+
+    .metric {
+      display: inline-block;
+      padding: 5px 10px;
+      background-color: #e0e0e0;
+      margin-right: 5px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 50px;
+    }
+
+    .prompt {
+      width: 600px;
+      border: 1px solid #ccc;
+      padding: 20px;
+      background-color: #f9f9f9;
+      margin-bottom: 20px;
+    }
+
+    .form-container {
+      width: 400px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .hint-box {
+      margin-top: 5px;
+      font-size: 12px;
+      color: #888;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4caf50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="app-header">
+    <h1>VideoBriefMaster</h1>
+    <h3>Picture ChatGPT as your personal video brief mastermind, always ready to assist in crafting an exceptional brief that will leave your video editor amazed. No more writer's block or frustation, ChatGPT has got you covered! It's like having an award-winning author dedicated to creating your video briefs. Simply provide the necessary details and watch the magic happen 🧠 🚀</h3>
+    <div class="app-tags">
+      <span class="tag">⭐ Marketing</span>
+      <span class="tag">🌐 Social Media</span>
+      <span class="tag">📣 Content Creation</span>
+      <span class="tag">🚀 Campaigns</span>
+      <span class="tag">🔍 SEO</span>
+    </div>
+    <div class="metrics-info">
+      <span class="metric">84</span>
+      <span class="metric-label">Total uses</span>
+      <span class="metric">1</span>
+      <span class="metric-label">Saved</span>
+      <span class="metric">2 days ago</span>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="prompt">
+      <h2>Prompt:</h2>
+      <div id="promptText"></div>
+    </div>
+
+    <div class="form-container">
+      <h1>Edit tags</h1>
+      <form id="inputForm">
+        <div class="form-group">
+          <label for="input1">Video Style: </label>
+          <input type="text" id="input1" name="input1" data-hint="Enter the complete description of the video style you want" />
+          <div class="hint-box"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="input2">Product, Service or brand:</label>
+          <input type="text" id="input2" name="input2" data-hint=" " />
+          <div class="hint-box"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="input3">Target audience:</label>
+          <input type="text" id="input3" name="input3" data-hint="Describe the advertising piece to be used" />
+          <div class="hint-box"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="input4">Tone, pacing and any important elements to include:</label>
+          <input type="text" id="input4" name="input4" data-hint="Describe the main idea to be conveyed" />
+          <div class="hint-box"></div>
+        </div>
+
+        <button type="submit">Generate Prompt</button>
+      </form>
+    </div>
+  </div>
+
+  <button id="copyButton">Copy Prompt</button>
+  <button id="editButton">Edit Prompt</button>
+  <button id="copyInputsButton">Copy Inputs as JSON</button>
+
+  <script>
+    // Obtener referencia a los elementos del formulario
+    const inputForm = document.getElementById("inputForm");
+    const input1 = document.getElementById("input1");
+    const input2 = document.getElementById("input2");
+    const input3 = document.getElementById("input3");
+    const input4 = document.getElementById("input4");
+
+
+    // Manejar el evento de envío del formulario
+    inputForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      // Obtener los valores de los campos de entrada
+      const value1 = input1.value;
+      const value2 = input2.value;
+      const value3 = input3.value;
+      const value4 = input4.value;
+
+
+      // Construir el prompt con los valores ingresados
+      const promptText = `Create a brief for a ${value1}\n\n video style or type promoting our ${value2}\n to the ${value3}\n\n, focusing on the desired ${value4} . Translate to spanish`;
+
+      // Actualizar el texto del prompt en el HTML
+      document.getElementById("promptText").textContent = promptText;
+    });
+
+    // Función para copiar el prompt al portapapeles
+    function copyPrompt() {
+      const promptText = document.getElementById("promptText").textContent;
+      navigator.clipboard.writeText(promptText);
+      alert("Prompt copied to clipboard!");
+    }
+
+    // Manejar el evento del botón de copiar el prompt
+    document.getElementById("copyButton").addEventListener("click", copyPrompt);
+  </script>
+</body>
+</html>
+<!-- partial -->
+  
+</body>
+</html>
